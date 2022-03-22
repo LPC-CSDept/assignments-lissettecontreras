@@ -24,6 +24,7 @@ int main()
             help *= N;
             cout << ", " <<  help;
             }
+        cout << endl;
     }
     }
 
