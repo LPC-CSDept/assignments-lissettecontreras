@@ -10,15 +10,22 @@ int main()
     cout << "\nEnter your exponent: ";
     cin >> M;
 
-    cout << N << " to the power number: 1";
-    for (int i = 1; i <= M, i++)(
-        if (i == 0){
-            cout << "1"
-        }
-        else if (i ==1)
-        cout << 
-    )
-
+    if ((N > 0 && N < 10) && (M>=1 && M<=10)){
+        cout << "\n" << N << " to the power number: ";
+        int help = N;
+        for (int i = 0; i <= M; i++){
+            if (i == 0){
+                cout << "1";
+            }
+            else if (i == 1){
+                cout << ", " << N;
+            }
+            else{
+            help *= N;
+            cout << ", " <<  help;
+            }
+    }
+    }
 
     return 0;
 }
