@@ -9,3 +9,17 @@ void gerRandnum(int &n1, int &n2, int &n3);
   n2 = rand();
   n3 = rand();
 }
+
+int findMin(int n1, int n2, int n3)
+{
+    int min = n1;
+    if (n2 < min)
+    {
+        min = n2;
+    }
+    if (n3 < min)
+    {
+        min = n3;
+    }
+    return min;
+}
