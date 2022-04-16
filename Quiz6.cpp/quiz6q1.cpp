@@ -1,7 +1,6 @@
 #include <iostream>
 using namespace std;
-
-int main ()
+void swapTwoValues(int n1, int n2)
 {
-   
+
 }
