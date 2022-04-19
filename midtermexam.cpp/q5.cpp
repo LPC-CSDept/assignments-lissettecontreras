@@ -18,3 +18,15 @@ void fileWrite(fstream &file, int result){
     file << result << "\n";
 
 }
+
+int main()
+{
+    fstream file;
+    file.open("question5.txt",ios::out);
+    while(true){
+        int n1 = getInput();
+        int n2 = getInput();
+        int result;
+        if (isSame(n1, n2)){
+            break;
+        }
