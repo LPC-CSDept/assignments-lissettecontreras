@@ -8,12 +8,15 @@ int getInput(){
     cin >> num;
     return num;
 }
+
 bool isSame(int n1, int n2){
     return (n1 == n2);
 }
+
 int intDivision(int n1, int n2){
     return n1/n2;
 }
+
 void fileWrite(fstream &file, int result){
     file << result << "\n";
 
@@ -30,3 +33,13 @@ int main()
         if (isSame(n1, n2)){
             break;
         }
+        if (n1 > n2){
+            result = intDivision(n1, n2);
+        } else{
+            result = intDivision(n2, n1);
+        }
+        fileWrite(file, result);
+    }
+    file.close();
+    return 0;
+}
