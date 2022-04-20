@@ -14,6 +14,7 @@ int getRdnum(int n2){
 int getRdnum(int n1, int n2){
     return rand()%(n2 - n1 + 1) + n1;
 }
+
 int main()
 {
     srand(time(0));
