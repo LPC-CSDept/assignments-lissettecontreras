@@ -1,11 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include <vector>
 
 using namespace std;
 
 int main()
-{
-	fstream myfile;
-    myfile.open("dtudents.txt" , ios::in);
-    
-}
