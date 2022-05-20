@@ -10,17 +10,10 @@ struct employee{
     std::string department;
     std::string date;
 };
-unsigned int size(){
-    std::ifstream infile("employee.txt");
-    unsigned int s = 0;
-    while (infile){
-        s++;
-    }
-    infile.close();
-    return s;
-}
-void create_file(){
+
+int create_file(){
     std::string inp;
+    int count = 0;
     std::ofstream outfile("employee.txt");
     std::cout << "Input in a string in the format 'ID Name Salary Department Date'." << std::endl;
     std::cout << "Input 'quit' to end the input" << std::endl;
@@ -28,14 +21,16 @@ void create_file(){
     while (inp != "quit"){
         outfile << inp << std::endl;
         std::getline(std::cin, inp);
+        count++;
     }
     outfile.close();
 
+    return count;
+
 }
 
-employee** createEmployees(){
+employee** createEmployees(int c){
     std::ifstream infile("employee.txt");
-    std::string line;
     std::string id;
     std::string first;
     std::string last;
@@ -46,17 +41,15 @@ employee** createEmployees(){
     std::string year;
     int count = 0;
 
-    employee** employees = new employee*[1];
+    employee** employees = new employee*[c];
 
-    while(infile){
-        line = infile.get();
-        std::cout << line;
-        std::stringstream ssin(line);
+    for(std::string l; getline(infile, l);){
+        std::stringstream ssin(l);
         ssin >> id >> first >> last >> salary >> department >> month >> day >> year;
         employees[count] = new employee;
-        employees[count]->id = std::stoi(id);
+        employees[count]->id = stoi(id);
         employees[count]->name = first + " " + last;
-        employees[count]->salary = std::stoi(salary);
+        employees[count]->salary = stoi(salary);
         employees[count]->department = department;
         employees[count]->date = month + " " + day + " " + year;
         count++;
@@ -107,20 +100,18 @@ void department(employee** employees, unsigned int s){
 }
 
 int main(){
-    create_file();
-    employee** employees = createEmployees();
+    int c = create_file();
+    employee** employees = createEmployees(c);
 
-    std::cout << employees[0]->name << std::endl;
-    // std::cout << "What conditions would you like to find employees under?\n(ID, salary, or department)" << std::endl;
-    // std::string cond = condition();
-    // unsigned int s = size();
+    std::cout << "What conditions would you like to find employees under?\n(ID, salary, or department)" << std::endl;
+    std::string cond = condition();
 
-    // if (cond == "ID"){
-    //     ID(employees, s);
-    // } else if (cond == "salary"){
-    //     salary(employees, s);
-    // } else if (cond == "department"){
-    //     department(employees, s);
-    // }
+    if (cond == "ID"){
+        ID(employees, c);
+    } else if (cond == "salary"){
+        salary(employees, c);
+    } else if (cond == "department"){
+        department(employees, c);
+    }
     return 0;
 }
