@@ -10,6 +10,8 @@ struct employee{
     std::string date;
 };
 
+void create_file();
+
 employee* createEmployees();
 
 
