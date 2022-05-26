@@ -15,10 +15,13 @@ int main() {
                 flag = true;
                 break;
             }
-     }
+        }
         if (!flag){
             cout << "numbers1 is not a subset of numbers2" << endl;
             return 0;
         }
-
+    }
+    cout << "numbers1 is a subset of numbers2" << endl;
+    return 0;
+}
 
