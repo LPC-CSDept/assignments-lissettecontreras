@@ -17,3 +17,10 @@ struct Grade{
       Scores score;
 };
 
+int main(){
+    ifstream ff("grades.txt");
+    fstream f;
+    f.open("grades.bin", ios::out | ios::binary);
+    string line;
+    while (ff.good()){
+  
