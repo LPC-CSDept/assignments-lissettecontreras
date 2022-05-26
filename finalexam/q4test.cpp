@@ -31,4 +31,10 @@ int main(){
         double g3;
         double g4;
         double g5;
-       
+        string grade;
+        ff >> line;
+        stringstream contents(line);
+        contents >> fname >> lname >> ssn >> g1 >> g2 >> g3 >> g4 >> g5 >> grade;
+        Scores s{{g1, g2, g3, g4, g5}, grade};
+        Grade g{fname, lname, ssn, s};
+        f.write(reinterpret_cast<char*>(&g), sizeof(Grade));  
