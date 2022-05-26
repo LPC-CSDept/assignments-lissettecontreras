@@ -23,4 +23,12 @@ int main(){
     f.open("grades.bin", ios::out | ios::binary);
     string line;
     while (ff.good()){
-  
+        string fname;
+        string lname;
+        string ssn;
+        double g1;
+        double g2;
+        double g3;
+        double g4;
+        double g5;
+       
